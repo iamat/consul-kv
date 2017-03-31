@@ -1,0 +1,34 @@
+{
+  "name": "consul-kv",
+  "version": "1.0.0",
+  "description": "Simple wrapper arround Consul to catch Key/values",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "echo 'No tests yet :/\n'",
+    "lint": "semistandard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com/iamat/consul-kv"
+  },
+  "keywords": [
+    "consul",
+    "kv"
+  ],
+  "author": {
+    "name": "Luciano Zappa",
+    "email": "luciano@iamat.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamat/consul-kv/issues"
+  },
+  "homepage": "https://github.com/iamat/consul-kv",
+  "dependencies": {
+    "consul": "^0.28.0"
+  },
+  "devDependencies": {
+    "semistandard": "^10.0.0"
+  }
+}
