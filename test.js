@@ -1,6 +1,7 @@
 var consul = require('consul')(),
 	consulkv = require('../consul-kv'),
-	consult = consulkv.consult;
+	consult = consulkv.consult
+	testPassed = true;
 
 console.log("Consul-kv self-test. Starting...");
 
@@ -25,9 +26,9 @@ consul.kv.set("consul-kv/test/key1", "value-key-1", function(err, result) {
 
 
 function validateResults() {
-	console.log("key1 test", consult("consul-kv/test/key1") === "value-key-1");
-	console.log("key2 test", consult("consul-kv/test/key2") === false);
-	console.log("key3 test", consult("consul-kv/test/key3") === "value-key-3");
+	assertEqual("key1 test", consult("consul-kv/test/key1"), "value-key-1");
+	assertEqual("key2 test", consult("consul-kv/test/key2"), false);
+	assertEqual("key3 test", consult("consul-kv/test/key3"), "value-key-3");
 	
 	// Second test
 	consul.kv.set("consul-kv/test/key3", "value-overwritten", function(err, result) {
@@ -35,9 +36,16 @@ function validateResults() {
 			throw err;
 			return;
 		}
-		console.log("key3 2nd test: ", consult("consul-kv/test/key3") === "value-key-3");
+		assertEqual("key3 2nd test: ", consult("consul-kv/test/key3"), "value-key-3");
 		consulkv.refresh(function(){
-			console.log("key3 3rd test: ", consult("consul-kv/test/key3") === "value-overwritten");
+			assertEqual("key3 3rd test: ", consult("consul-kv/test/key3"), "value-overwritten");
 		});
 	});
+}
+
+function assertEqual(what, expected, actual) {
+	var thisTestPassed = (expected === actual);
+	testPassed =  testPassed && thisTestPassed;
+	console.log(what, thisTestPassed ? "OK" : "FAIL");
+	return;
 }
