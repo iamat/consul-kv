@@ -13,7 +13,8 @@ npm install consul-kv
 1. Install *Consul* in your VM.
 2. The library will connect an existing [Consul](https://www.consul.io/downloads.html)
    installation.
-3. Include it into your app!
+3. (optional) In the package folder run ```node test``` to verify that Consul is accessible
+4. Include it into your app!
 
 ## Example
 
