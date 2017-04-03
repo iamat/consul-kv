@@ -1,5 +1,8 @@
 /**
- * Simple API version selector
+ * Consul key/value reader + cache
+ *
+ * Responds sinchronously, but readas values asinchronously and stores them in cache
+ *
  */
 
 var consul = require('consul')(),
