@@ -1,6 +1,6 @@
 {
   "name": "consult",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple wrapper arround Consul to cache the key/value store",
   "main": "index.js",
   "scripts": {
