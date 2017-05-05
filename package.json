@@ -1,7 +1,7 @@
 {
-  "name": "consul-kv",
+  "name": "consult",
   "version": "1.0.0",
-  "description": "Simple wrapper arround Consul to catch Key/values",
+  "description": "Simple wrapper arround Consul to cache the key/value store",
   "main": "index.js",
   "scripts": {
     "pretest": "npm run lint",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://git@github.com/iamat/consul-kv"
+    "url": "git://git@github.com/iamat/consult"
   },
   "keywords": [
     "consul",
@@ -22,9 +22,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iamat/consul-kv/issues"
+    "url": "https://github.com/iamat/consult/issues"
   },
-  "homepage": "https://github.com/iamat/consul-kv",
+  "homepage": "https://github.com/iamat/consult",
   "dependencies": {
     "consul": "^0.28.0"
   },
