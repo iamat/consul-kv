@@ -8,7 +8,7 @@
 var consul = require('consul')(),
     cachedKeys = new Array(),
     cachedKeysUpdatedCount = 0,
-    refreshInterval = 1 * 60 * 1000, // 2 minutes
+    refreshInterval = 1 * 60 * 1000, // 1 minute
     intervalDescriptor;
 
 module.exports = {
@@ -32,7 +32,15 @@ module.exports = {
         if (cachedKeys.hasOwnProperty(key)) {
             return cachedKeys[key];
         }
-        return false;
+
+        cachedKeys[key] = null;
+        if (!intervalDescriptor) {
+          module.exports.refresh();
+          intervalDescriptor = setInterval( (function() {
+            module.exports.refresh();
+          }).bind(this), refreshInterval);
+        }
+        return cachedKeys[key];
     },
 
     refresh: function(callback) {
