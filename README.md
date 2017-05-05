@@ -5,7 +5,7 @@ A simple node.js wrapper arround [Consul](https://www.consul.io/intro/getting-st
 ## Installation
 
 ```bash
-npm install consul-kv
+npm install consult
 ```
 
 ## Usage
@@ -19,10 +19,10 @@ npm install consul-kv
 ## Example
 
 ```javascript
-const consulkv = require('consul-kv'),
-	  consult = consulkv.consult;
+const consulkv = require('consult'),
+	  consult = consult.consult;
 
-// Pre-fill local cache with current values at server start 
+// Pre-fill local cache with current values at server start
 consulkv.init(["key1", "key2", "key3", ...]);
 
 // As a featureToggler, use it as follows:
